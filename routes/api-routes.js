@@ -13,26 +13,35 @@ router.get('/api/workouts', (req, res) => {
         });
 });
 
-// router.put('/api/workouts', (req, res) => {
+// router.put('/api/workouts/:id', (req, res) => {
 //     Workout.findByIdAndUpdate(req.params.id,
-//         { $push: { exercises: req.body } },
-//         {new: true})
+//         { $push: [{ exercises: req.body }] },
+//         { returnOriginal: false })
 //         .then(data => {
 //             res.json(data);
 //         })
 //         .catch(err => {
 //             res.status(400).json(err);
 //         });
-// });
+// }); // *CHECK - insomnia response questionable
+//     //          maybe something with subdoc
 
-// router.post('/api/workouts')
+// router.post('/api/workouts', (req, res) => {
+//     Workout.create(req.body)
+//         .then(data => {
+//         res.json(data);
+//         })
+//         .catch(err => {
+//             res.status(400).json(err);
+//         })
+// })
 
 router.get('/api/workouts/range', (req, res) => {
     Workout.aggregate([
         {
             $addFields: {
-                durationSnapshot: { $sum: '$exercises.duration' },
-                weightSnapshot: { $sum: '$exercises.weight' }
+                sevendayDuration: { $sum: '$exercises.duration' },
+                sevendayWeight: { $sum: '$exercises.weight' }
             }
         }
     ])

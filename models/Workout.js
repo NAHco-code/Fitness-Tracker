@@ -20,9 +20,10 @@ const exerciseSchema = new Schema({
 
 const workoutSchema = new Schema({
     day: { type: Date, default: Date.now },
-    exercises: { type: [exerciseSchema] } //array of exercises
+    exercises: { type: [exerciseSchema], default: () => ({})} //set default to empty object so mongoose applies subdocument defaults
 });
 
 const Workout = mongoose.model("Workout", workoutSchema);
+// const Exercise = new Model({ workoutSchema: { exerciseSchema: "Exercise" } });
 
 module.exports = Workout;
