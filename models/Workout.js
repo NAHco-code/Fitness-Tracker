@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 
 // *NOTE: exerciseSchema is a sub-field of workoutSchema
-//        thus, able to condense to one model
+//        thus, able to condense to one model file
 //        -- define sub-field first in order to reference in workoutSchema
 const exerciseSchema = new Schema({
 
@@ -20,10 +20,9 @@ const exerciseSchema = new Schema({
 
 const workoutSchema = new Schema({
     day: { type: Date, default: Date.now },
-    exercises: { type: [exerciseSchema]} //set default to empty object so mongoose applies subdocument defaults
+    exercises: { type: [exerciseSchema]}
 });
 
 const Workout = mongoose.model("Workout", workoutSchema);
-// const Exercise = new Model({ workoutSchema: { exerciseSchema: "Exercise" } });
 
 module.exports = Workout;

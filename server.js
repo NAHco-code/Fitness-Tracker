@@ -1,5 +1,5 @@
 const express = require("express");
-const logger = require('morgan');
+const logger = require('morgan'); //love a good logger
 const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3000;
