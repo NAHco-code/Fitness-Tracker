@@ -19,11 +19,9 @@ The Fitness Tracker enables the user to view, create and track daily workouts. T
 
 ## Visuals
 
-![screenshot]()
+![screenshot](./assets/images/homepage.png) ![screenshot](./assets/images/dashboard.png)
 
-![screenshot]()
-
-[DeployedApp] (<>)
+[DeployedApp] (<https://thawing-earth-85223.herokuapp.com/>)
 
 ## Technologies
 
